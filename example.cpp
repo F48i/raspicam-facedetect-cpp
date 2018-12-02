@@ -1,6 +1,7 @@
 #include "opencv2/objdetect.hpp"
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
+#include "opencv2/imgproc/imgproc_c.h"
 #include <iostream>
 #include <raspicam/raspicam_cv.h>
 
@@ -35,7 +36,7 @@ int main( int argc, const char** argv )
 {
     raspicam::RaspiCam_Cv picam;
     //set camera params
-    picam.set( CV_CAP_PROP_FORMAT, CV_8UC3 );
+    picam.set( CAP_PROP_FORMAT, CV_8UC3 );
     //Open camera
     cout<<"Opening Camera..."<<endl;
     if (!picam.open()) {cerr<<"Error opening the camera"<<endl;return -1;}
